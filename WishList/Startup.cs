@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WishList.Data;
 
 namespace WishList
 {
@@ -18,6 +19,14 @@ namespace WishList
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<ApplicationDbContext> 
+
+
+            /*
+             In the ConfigureServices method, call AddDbContext<ApplicationDbContext> on services with 
+            the argument options => options.UseInMemoryDatabase("WishList") to point EntityFramework to the application's DbContext. 
+            (Note: You will need to add a using statement for WishList.Data)
+             */
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
